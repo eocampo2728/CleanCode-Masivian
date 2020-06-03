@@ -21,13 +21,11 @@ public class BetServicesStub implements BetServices{
     @Autowired
     BetPersistence bPersistence;
     @Override
-    public void createNewBet(String type, String bet, int value, User user, Roulette roulette) {        
-        bPersistence.createNewBet(type, bet, value, user, roulette);
+    public void createNewBet(Bet bet) {        
+        bPersistence.createNewBet(bet);
     }
     @Override
     public List<Bet> getBetByRoulette(int id){
         return bPersistence.getBetByRoulette(id);
-    }
-
-    
+    }    
 }

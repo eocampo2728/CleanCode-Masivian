@@ -25,40 +25,40 @@ public class RouletteController {
     @Autowired
     RouletteServices rServices;
     @Autowired
-    UserServices uServices;
-    @Autowired
     BetServices bServices;
     @RequestMapping(method = RequestMethod.POST, path = "roulette")
     public ResponseEntity<?> createNewRoulette() {
-        try{
-            return new ResponseEntity<>("Unable to create roulette", HttpStatus.NOT_ACCEPTABLE);
+        try{            
+            return new ResponseEntity<>(rServices.createNewRoulette(), HttpStatus.CREATED);
         }catch (Exception ex) {
             Logger.getLogger(RouletteController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("Unable to create roulette", HttpStatus.NOT_ACCEPTABLE);
         }
     }
-    @RequestMapping(method = RequestMethod.PUT, path = "roulette")
-    public ResponseEntity<?> openRoulette() {
+    @RequestMapping(method = RequestMethod.PUT, path = "roulette/{id}")
+    public ResponseEntity<?> openRoulette(@PathVariable("id") int roulette) {
         try{
-            return new ResponseEntity<>("Unable to open roulette", HttpStatus.NOT_ACCEPTABLE);
+            rServices.openRouletteById(roulette);
+            return new ResponseEntity<>(HttpStatus.ACCEPTED);
         }catch (Exception ex) {
             Logger.getLogger(RouletteController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("Unable to open roulette", HttpStatus.NOT_ACCEPTABLE);
         }
     }
-    @RequestMapping(method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> createNewBet(@RequestBody Bet bet) {
+    @RequestMapping(method = RequestMethod.POST, path = "roulette/")
+    public ResponseEntity<?> createNewBet(@RequestBody Bet bet, @PathVariable("id") int user) {
         try{
-            return new ResponseEntity<>("Unable to create new bet", HttpStatus.NOT_ACCEPTABLE);
+            bServices.createNewBet(bet);
+            return new ResponseEntity<>(HttpStatus.CREATED);
         }catch (Exception ex) {
             Logger.getLogger(RouletteController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("Unable to create new bet", HttpStatus.NOT_ACCEPTABLE);
         }
     }
     @RequestMapping(method = RequestMethod.GET, path = "roulette/{id}")
-    public ResponseEntity<?> getAllBetsByRoulette(@PathVariable("id") String roulette) {
+    public ResponseEntity<?> getAllBetsByRoulette(@PathVariable("id") int roulette) {
         try{
-            return new ResponseEntity<>("Unable to get bets by roulette", HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>(bServices.getBetByRoulette(roulette), HttpStatus.NOT_ACCEPTABLE);
         }catch (Exception ex) {
             Logger.getLogger(RouletteController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("Unable to get bets by roulette", HttpStatus.NOT_ACCEPTABLE);
@@ -67,11 +67,10 @@ public class RouletteController {
     @RequestMapping(method = RequestMethod.GET, path = "roulette")
     public ResponseEntity<?> getAllRoulettes() {
         try{
-            return new ResponseEntity<>("Unable to get all roulette", HttpStatus.NOT_ACCEPTABLE);
+            return new ResponseEntity<>(rServices.getAllRoulettes(), HttpStatus.NOT_ACCEPTABLE);
         }catch (Exception ex) {
             Logger.getLogger(RouletteController.class.getName()).log(Level.SEVERE, null, ex);
             return new ResponseEntity<>("Unable to get all roulette", HttpStatus.NOT_ACCEPTABLE);
         }
-    }
-    
+    }    
 }

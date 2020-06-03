@@ -12,8 +12,21 @@ import java.util.List;
  *
  * @author Eduardo Ocampo
  */
-public interface RoulettePersistence {    
+public interface RoulettePersistence { 
+    /**
+     * 
+     * @return 
+     */
     public int createNewRoulette();
+    /**
+     * 
+     * @param id
+     * @return 
+     */
     public boolean openRouletteById(int id);
+    /**
+     * 
+     * @return 
+     */
     public List<Roulette> getAllRoulettes();
 }

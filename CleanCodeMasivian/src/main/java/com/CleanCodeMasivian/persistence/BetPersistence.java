@@ -15,6 +15,15 @@ import java.util.List;
  * @author Eduardo Ocampo
  */
 public interface BetPersistence {
-    public void createNewBet(String type, String bet, int value, User user, Roulette roulette);
+    /**
+     * 
+     * @param bet
+     */
+    public void createNewBet(Bet bet);
+    /**
+     * 
+     * @param id
+     * @return 
+     */
     public List<Bet> getBetByRoulette(int id);
 }

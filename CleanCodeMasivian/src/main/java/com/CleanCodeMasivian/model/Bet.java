@@ -14,13 +14,11 @@ public class Bet {
     User user;
     Roulette roulette;
     String result;
-    public Bet(int id, String type, String bet, int value, User user, Roulette roulette){
+    public Bet(int id, String type, String bet, int value){
         this.id = id;
         this.type = type;
         this.bet = bet;
         this.value = value;
-        this.user = user;
-        this.roulette = roulette;
     }
     public int getId(){
         return id;

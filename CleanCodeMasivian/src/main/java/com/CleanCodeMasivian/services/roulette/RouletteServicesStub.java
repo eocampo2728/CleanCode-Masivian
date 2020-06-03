@@ -26,8 +26,7 @@ public class RouletteServicesStub implements RouletteServices{
     @Override
     public boolean openRouletteById(int id){
         return rPersistence.openRouletteById(id);
-    }
-    
+    }    
     @Override
     public List<Roulette> getAllRoulettes(){
         return rPersistence.getAllRoulettes();

@@ -12,7 +12,20 @@ import java.util.List;
  * @author Eduardo Ocampo
  */
 public interface RouletteServices {
+    /**
+     * 
+     * @return 
+     */
     public int createNewRoulette();
+    /**
+     * 
+     * @param id
+     * @return 
+     */
     public boolean openRouletteById(int id);
+    /**
+     * 
+     * @return 
+     */
     public List<Roulette> getAllRoulettes();
 }

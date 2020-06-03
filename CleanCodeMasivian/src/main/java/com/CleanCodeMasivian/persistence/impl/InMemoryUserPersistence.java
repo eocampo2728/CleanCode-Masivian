@@ -5,10 +5,13 @@
  */
 package com.CleanCodeMasivian.persistence.impl;
 
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author Eduardo Ocampo
  */
+@Service
 public class InMemoryUserPersistence {
     
 }
