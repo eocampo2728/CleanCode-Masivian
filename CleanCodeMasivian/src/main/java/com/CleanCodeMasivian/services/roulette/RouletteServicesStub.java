@@ -3,29 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.CleanCodeMasivian.persistence.impl;
+package com.CleanCodeMasivian.services.roulette;
 
 import com.CleanCodeMasivian.model.Roulette;
-import com.CleanCodeMasivian.persistence.ApplicationDB;
 import com.CleanCodeMasivian.persistence.RoulettePersistence;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 /**
  *
  * @author Eduardo Ocampo
  */
-public class InMemoryRoulettePersistence implements RoulettePersistence{
-    ApplicationDB appDB;
+@Service
+public class RouletteServicesStub implements RouletteServices{
+    @Autowired
+    RoulettePersistence rPersistence;
     @Override
     public int createNewRoulette(){
-        return 0;
-    }
+        return rPersistence.createNewRoulette();
+    } 
     @Override
     public boolean openRouletteById(int id){
-        return false;
-    }
-    @Override
-    public List<Roulette> getAllRoulettes(){
-        return null;
+        return rPersistence.openRouletteById(id);
     }
     
+    @Override
+    public List<Roulette> getAllRoulettes(){
+        return rPersistence.getAllRoulettes();
+    }
 }

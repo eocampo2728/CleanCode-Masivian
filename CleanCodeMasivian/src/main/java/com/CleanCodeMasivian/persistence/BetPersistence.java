@@ -5,15 +5,16 @@
  */
 package com.CleanCodeMasivian.persistence;
 
+import com.CleanCodeMasivian.model.Bet;
 import com.CleanCodeMasivian.model.Roulette;
+import com.CleanCodeMasivian.model.User;
 import java.util.List;
 
 /**
  *
  * @author Eduardo Ocampo
  */
-public interface RoulettePersistence {    
-    public int createNewRoulette();
-    public boolean openRouletteById(int id);
-    public List<Roulette> getAllRoulettes();
+public interface BetPersistence {
+    public void createNewBet(String type, String bet, int value, User user, Roulette roulette);
+    public List<Bet> getBetByRoulette(int id);
 }

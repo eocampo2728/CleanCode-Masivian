@@ -5,26 +5,24 @@
  */
 package com.CleanCodeMasivian.persistence.impl;
 
+import com.CleanCodeMasivian.model.Bet;
 import com.CleanCodeMasivian.model.Roulette;
+import com.CleanCodeMasivian.model.User;
 import com.CleanCodeMasivian.persistence.ApplicationDB;
-import com.CleanCodeMasivian.persistence.RoulettePersistence;
+import com.CleanCodeMasivian.persistence.BetPersistence;
 import java.util.List;
+
 /**
  *
  * @author Eduardo Ocampo
  */
-public class InMemoryRoulettePersistence implements RoulettePersistence{
+public class InMemoryBetPersistence implements BetPersistence{
     ApplicationDB appDB;
     @Override
-    public int createNewRoulette(){
-        return 0;
+    public void createNewBet(String type, String bet, int value, User user, Roulette roulette){
     }
     @Override
-    public boolean openRouletteById(int id){
-        return false;
-    }
-    @Override
-    public List<Roulette> getAllRoulettes(){
+    public List<Bet> getBetByRoulette(int id){
         return null;
     }
     

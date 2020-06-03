@@ -5,10 +5,14 @@
  */
 package com.CleanCodeMasivian.services.roulette;
 
+import com.CleanCodeMasivian.model.Roulette;
+import java.util.List;
 /**
  *
  * @author Eduardo Ocampo
  */
 public interface RouletteServices {
-    
+    public int createNewRoulette();
+    public boolean openRouletteById(int id);
+    public List<Roulette> getAllRoulettes();
 }
